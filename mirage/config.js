@@ -23,4 +23,9 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.4.x/shorthands/
   */
+  this.namespace = 'api';
+  this.timing = 400;
+
+  this.get('/products');
+  this.get('/products/:id');
 }
