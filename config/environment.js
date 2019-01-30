@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'one-stop-grocery',
+    podModulePrefix: 'one-stop-grocery/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',
