@@ -9,5 +9,6 @@
   "usePods": true,
   "port": 4099,
   "host": "0.0.0.0",
-  "liveReload": true
+  "liveReload": true,
+  "watcher": "polling"
 }

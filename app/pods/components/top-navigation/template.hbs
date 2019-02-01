@@ -1,0 +1,11 @@
+{{#bs-nav type=type justified=justified stacked=stacked fill=fill as |nav|}}
+  {{#nav.item}}{{#nav.link-to "home"}}Home{{/nav.link-to}}{{/nav.item}}
+  {{#nav.item}}{{#nav.link-to "home"}}Navs{{/nav.link-to}}{{/nav.item}}
+  {{#nav.dropdown as |dd|}}
+    {{#dd.toggle}}Dropdown <span class="caret"></span>{{/dd.toggle}}
+    {{#dd.menu as |ddm|}}
+      {{#ddm.item}}{{#ddm.link-to "home"}}Home{{/ddm.link-to}}{{/ddm.item}}
+      {{#ddm.item}}{{#ddm.link-to "home"}}Navs{{/ddm.link-to}}{{/ddm.item}}
+    {{/dd.menu}}
+  {{/nav.dropdown}}
+{{/bs-nav}}
