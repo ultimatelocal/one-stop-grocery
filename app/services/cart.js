@@ -1,11 +1,13 @@
-import Ember  from 'ember';
-import {storageFor} from 'ember-local-storage';
+import Service from '@ember/service';
+import { inject } from '@ember/service';
+import { computed } from '@ember/object';
+import { storageFor } from 'ember-local-storage';
 
-export default Ember.Service.extend({
-  store: Ember.inject.service(),
+export default Service.extend({
+  store: inject.service(),
   productIds: storageFor('cart'),
 
-  products: Ember.computed('productIds.[]', function() {
+  products: computed('productIds.[]', function() {
     return this.get('store').query('product', {
       ids: this.get('productIds.content')
     });

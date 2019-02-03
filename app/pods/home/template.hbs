@@ -1,11 +1,5 @@
 {{top-navigation}}
+
 <div class="container">
-  {{log products}}
-  <div class="row">
-    {{#each products as |product|}}
-      <div class="col-lg-4 ">
-        {{product.name}}
-      </div>
-    {{/each}}
-  </div>
+  {{outlet}}
 </div>

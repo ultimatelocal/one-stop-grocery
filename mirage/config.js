@@ -3,9 +3,8 @@ export default function() {
   this.namespace = 'api';
   this.timing = 400;
 
-  this.get('/products', (schema, request) => {
-
-  });
+  this.get('/categories');
+  this.get('/products');
   this.get('/products/:id', (schema, request) => {
     let idParams = request.params.id;
     let ids = idParams.includes(',') ? idParams.split(',') : idParams;

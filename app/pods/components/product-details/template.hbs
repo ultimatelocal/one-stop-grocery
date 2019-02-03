@@ -1,0 +1,21 @@
+<div class="col-lg-4 col-sm-6 product-container" {{action (mut isModalOpen) true}}>
+  <img src="/assets/images/bag.jpg" height="100" width="100">
+  <label class="information product-name"> {{product.name}} </label>
+  <label class="information product-price"> {{product.price}} </label>
+</div>
+
+{{#bs-modal open=isModalOpen onSubmit=(action "submit") onHidden=(action (mut isModalOpen) false) as |modal|}}
+  {{#modal.body}}
+    <div class="product-container" {{action (mut isModalOpen) true}}>
+      <img src="/assets/images/bag.jpg" height="100" width="100">
+      <label class="information product-name"> {{product.name}} </label>
+      <label class="information product-price"> {{product.price}} </label>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-primary" name="button"> + </button>
+          <label class="item-quantity">10</label>
+          <button type="button" class="btn btn-sm btn-primary" name="button"> - </button>
+        </div>
+    </div>
+  {{/modal.body}}
+{{/bs-modal}}

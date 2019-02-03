@@ -1,11 +1,12 @@
-{{#bs-nav type=type justified=justified stacked=stacked fill=fill as |nav|}}
-  {{#nav.item}}{{#nav.link-to "home"}}Home{{/nav.link-to}}{{/nav.item}}
-  {{#nav.item}}{{#nav.link-to "home"}}Navs{{/nav.link-to}}{{/nav.item}}
-  {{#nav.dropdown as |dd|}}
-    {{#dd.toggle}}Dropdown <span class="caret"></span>{{/dd.toggle}}
-    {{#dd.menu as |ddm|}}
-      {{#ddm.item}}{{#ddm.link-to "home"}}Home{{/ddm.link-to}}{{/ddm.item}}
-      {{#ddm.item}}{{#ddm.link-to "home"}}Navs{{/ddm.link-to}}{{/ddm.item}}
-    {{/dd.menu}}
-  {{/nav.dropdown}}
-{{/bs-nav}}
+{{#bs-navbar type=type backgroundColor="green" collapsed=collapsed as |navbar|}}
+  <div class="navbar-header">
+    {{navbar.toggle}}
+    {{#link-to "home.products" class="navbar-brand"}} ONE STOP GROCERY {{/link-to}}
+  </div>
+  {{#navbar.content}}
+    {{#navbar.nav as |nav|}}
+      {{#nav.item}}{{#nav.link-to "home.products"}}Products{{/nav.link-to}}{{/nav.item}}
+      {{#nav.item}}{{#nav.link-to "home.cart"}}Cart{{/nav.link-to}}{{/nav.item}}
+    {{/navbar.nav}}
+  {{/navbar.content}}
+{{/bs-navbar}}

@@ -1,0 +1,14 @@
+.top-navigation {
+  nav {
+    &.bg-green {
+      background-color: $green;
+    }
+    ul > li > a {
+      color: $white;
+    }
+  }
+
+  @media #{$media-mobile}{
+    background-color: yellow;
+  }
+}
