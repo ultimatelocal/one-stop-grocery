@@ -2,7 +2,7 @@
 
 One stop grocery a simple shopping (ember project using SASS pre processor) with ember-cli-mirage server data mocking layer.
 
-## Prerequisites	# Notes upon running the application on local machine:
+## Prerequisites:
 
 You will need the following things properly installed on your computer.
 
