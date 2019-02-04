@@ -11,8 +11,6 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
 
-## How to install ember-cli and clone repository to local machine:
-
 ## Installation
 * `npm install -g ember-cli`
 * `git clone <repository-url>` this repository
