@@ -14,6 +14,7 @@ export default Route.extend({
       categories: this.store.findAll('category')
     });
   },
+
   setupController(controller, model) {
     this._super(controller, model);
 

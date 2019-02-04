@@ -1,4 +1,7 @@
 .top-navigation {
+  a {
+    color: $white !important;
+  }
   nav {
     &.bg-green {
       background-color: $green;

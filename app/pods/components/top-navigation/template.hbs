@@ -1,3 +1,4 @@
+{{log cart.totalDiscountedPrice}}
 {{#bs-navbar type=type backgroundColor="green" collapsed=collapsed as |navbar|}}
   <div class="navbar-header">
     {{navbar.toggle}}
@@ -6,7 +7,7 @@
   {{#navbar.content}}
     {{#navbar.nav as |nav|}}
       {{#nav.item}}{{#nav.link-to "home.products"}}Products{{/nav.link-to}}{{/nav.item}}
-      {{#nav.item}}{{#nav.link-to "home.cart"}}Cart{{/nav.link-to}}{{/nav.item}}
+      {{#nav.item}}{{#nav.link-to "home.cart"}}Cart ({{cart.cartContents.length}}){{/nav.link-to}}{{/nav.item}}
     {{/navbar.nav}}
   {{/navbar.content}}
 {{/bs-navbar}}

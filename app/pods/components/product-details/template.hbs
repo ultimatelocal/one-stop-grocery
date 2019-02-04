@@ -1,20 +1,28 @@
 <div class="col-lg-4 col-sm-6 product-container" {{action (mut isModalOpen) true}}>
   <img src="/assets/images/bag.jpg" height="100" width="100">
   <label class="information product-name"> {{product.name}} </label>
-  <label class="information product-price"> {{product.price}} </label>
+  <label class="information product-price"> Price: {{is-float product.price}} </label>
+  <label class="information product-price"> Quantity Available: {{product.quantityAvailable}} </label>
 </div>
 
-{{#bs-modal open=isModalOpen onSubmit=(action "submit") onHidden=(action (mut isModalOpen) false) as |modal|}}
+{{#bs-modal open=isModalOpen onHidden=(action (mut isModalOpen) false) as |modal|}}
+  {{#modal.header}}
+    <h4 class="modal-title">
+      {{product.name}}
+    </h4>
+  {{/modal.header}}
   {{#modal.body}}
     <div class="product-container" {{action (mut isModalOpen) true}}>
       <img src="/assets/images/bag.jpg" height="100" width="100">
       <label class="information product-name"> {{product.name}} </label>
-      <label class="information product-price"> {{product.price}} </label>
+      <p class="short-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+      <label class="information product-price"> Price: {{is-float product.price}} </label>
+      <label class="information product-price"> Quantity Available: {{product.quantityAvailable}} </label>
 
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-primary" name="button"> + </button>
-          <label class="item-quantity">10</label>
-          <button type="button" class="btn btn-sm btn-primary" name="button"> - </button>
+          <button type="button" class="btn btn-sm btn-primary" name="button" {{action "addToCart" product}}> + </button>
+          <label class="item-quantity">{{quantityAvailed}}</label>
+          <button type="button" class="btn btn-sm btn-primary" name="button" {{action "removeToCart" product}}> - </button>
         </div>
     </div>
   {{/modal.body}}

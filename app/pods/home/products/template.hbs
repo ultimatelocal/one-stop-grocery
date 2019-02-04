@@ -1,12 +1,14 @@
-<div class="row category-container">
-  <span class="category-name {{unless selectedCategoryId "active" ""}}" {{action "filterByCategory"}}> All </span>
-  {{#each categories as |category|}}
-    <span class="category-name {{if (eq selectedCategoryId category.id) "active" ""}}" {{action "filterByCategory" category.id}}> {{category.name}} </span>
-  {{/each}}
-</div>
+<div class="container">
+  <div class="row category-container">
+    <span class="category-name {{unless selectedCategoryId "active" ""}}" {{action "filterByCategory"}}> All </span>
+    {{#each categories as |category|}}
+      <span class="category-name {{if (eq selectedCategoryId category.id) "active" ""}}" {{action "filterByCategory" category.id}}> {{category.name}} </span>
+    {{/each}}
+  </div>
 
-<div class="row">
-  {{#each filteredProductsByCategory as |product|}}
-    {{product-details product=product}}
-  {{/each}}
+  <div class="row">
+    {{#each filteredProductsByCategory as |product|}}
+      {{product-details product=product}}
+    {{/each}}
+  </div>
 </div>

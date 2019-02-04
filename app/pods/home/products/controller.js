@@ -1,13 +1,11 @@
 import Controller from '@ember/controller';
-import Ember from 'ember';
 import { filter } from '@ember/object/computed';
 import { computed } from '@ember/object';
 
 export default Controller.extend({
   queryParams: ['categoryId'],
-  // cart: Ember.inject.service(),
-  products: Ember.computed.alias('model.products'),
-  categories: Ember.computed.alias('model.categories'),
+  products: computed.alias('model.products'),
+  categories: computed.alias('model.categories'),
   selectedCategoryId: null,
 
   filteredProductsByCategory: computed("products.category", function() {
@@ -23,6 +21,6 @@ export default Controller.extend({
   actions: {
     filterByCategory(categoryId = null){
       this.transitionToRoute('home.products', {queryParams :{ categoryId }});
-    }
+    },
   }
 });

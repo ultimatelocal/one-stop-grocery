@@ -1,3 +1,76 @@
-<div class="">
-  
+<div class="cart-contents">
+  <div class="row">
+    {{#if cartContents}}
+      <div class="col-lg-9 col-md-12 col-sm-12">
+        {{#each cartContents as |cartItem|}}
+          <div class="row">
+            <div class="col-lg-12 item">
+              <img src="/assets/images/bag.jpg" height="100" width="100">
+              <div class="description">
+                <label class="item-name"> {{cartItem.product.name}} </label>
+                <p class="short-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                <label class="item-quantity"> {{pluralize-quantity cartItem.quantity}} </label>
+                <label class="item-total"> {{is-float cartItem.total}} </label>
+
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary" name="button" {{action "addToCart" cartItem.id}}> + </button>
+                <label class="item-quantity">{{cartItem.quantity}}</label>
+                <button type="button" class="btn btn-sm btn-primary" name="button" {{action "removeToCart" cartItem.id}}> - </button>
+              </div>
+            </div>
+          </div>
+
+        {{/each}}
+      </div>
+    {{else}}
+       <div class="col-lg-12 empty-state">
+         <h1> Your Cart is Empty Proceed to {{#link-to "home.products"}}Product{{/link-to}} page to shop.</h1>
+       </div>
+    {{/if}}
+
+    {{#if cartContents}}
+      <div class="col-lg-3 col-md-12 col-sm-12">
+        <div class="checkout-container">
+          <label> Item Count: {{cartContents.length}}</label>
+          <label> Total: {{is-float cart.grandTotal}}</label>
+
+          {{#if (not-eq cart.grandTotal cart.totalDiscountedPrice)}}
+            <label> Total Discounted Price: {{is-float cart.totalDiscountedPrice}} </label>
+
+            <label> Availed Promos: </label>
+            {{#if cart.isDrinksPromoMeet}}
+              <label class="discount">Discount: 10% Off on 10 drink items</label>
+            {{/if}}
+
+            {{#if cart.isBakingPromoMeet}}
+              <label class="discount">Discount: £ 50 Off on £ 50 or more availed baking products</label>
+            {{/if}}
+
+            {{#if cart.isThereCouponApplied}}
+              <label class="discount">CODE: {{cart.coupon.firstObject.couponCode}} - {{is-float cart.coupon.firstObject.discount}} off</label>
+            {{/if}}
+          {{/if}}
+
+          {{#unless cart.isThereCouponApplied}}
+            <div class="input-group">
+              {{input value=couponCode class="form-control" placeholder="Promo code here.." aria-label="Promo code here.." aria-describedby="basic-addon2"}}
+                <div class="input-group-append">
+                  <button class="btn btn-outline-primary" type="button" {{action "applyCoupon"}}>Apply</button>
+                </div>
+            </div>
+            {{#if isError}}
+              <br>
+              <div class="alert alert-danger" role="alert">
+                Coupon code does not exist.
+              </div>
+            {{/if}}
+          {{/unless}}
+          <br>
+          <button type="button" class="btn btn-success" name="button" {{action "checkout"}}> Checkout </button>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+
 </div>
